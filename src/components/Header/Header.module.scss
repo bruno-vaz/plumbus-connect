@@ -1,0 +1,15 @@
+.header {
+  & {
+    padding: 32px 0 12px;
+  }
+}
+
+.logo {
+  & {
+    display: block;
+    width: 150px;
+  }
+  >svg {
+    width: 100%;
+  }
+}

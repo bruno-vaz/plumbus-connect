@@ -1,3 +1,7 @@
 import React from "react"
 
-export default () => <div><pre>juno-test</pre></div>
+import Header from "components/Header"
+
+export default () => (
+  <Header />
+)
