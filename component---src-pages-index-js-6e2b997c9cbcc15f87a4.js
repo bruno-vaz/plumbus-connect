@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{188:function(e,n,t){"use strict";t.r(n);var u=t(0),a=t.n(u);n.default=function(){return a.a.createElement("div",null,a.a.createElement("pre",null,"juno-test"))}}}]);
+//# sourceMappingURL=component---src-pages-index-js-6e2b997c9cbcc15f87a4.js.map
