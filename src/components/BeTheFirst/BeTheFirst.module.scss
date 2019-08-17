@@ -16,6 +16,12 @@
   }
 }
 
+.illustration {
+  & {
+    position: relative;
+  }
+}
+
 .circleloader {
   & {
     position: absolute;
