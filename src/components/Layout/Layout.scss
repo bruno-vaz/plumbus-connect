@@ -1,3 +1,16 @@
+:root {
+  --brand-main: #fa9a9c;
+  --brand-light: #ffb0b2;
+  --brand-lighter: #fedce1;
+  --contrast-main: #ffb581;
+  --contrast-lighter: #fbd6bb;
+
+  --white: #fff;
+  --gray: #505050;
+  --gray-light: #f2f2f2;
+
+  --transition-default: .3s ease-out;
+}
 * {
   & {
     box-sizing: border-box;
@@ -12,5 +25,10 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: "Inconsolata", sans-serif;
+  }
+}
+button, input, textarea {
+  & {
+    font-family: inherit;
   }
 }

@@ -1,0 +1,59 @@
+.wrapper {
+  & {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    padding: 50px 0;
+  }
+
+  .title {
+    margin-bottom: 18px;
+  }
+  .text {
+    font-weight: 400;
+    max-width: 372px;
+    margin-bottom: 20px;
+  }
+}
+
+.circleloader {
+  & {
+    position: absolute;
+    top: 39.2%;
+    left: 39.25%;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    border-top-color: var(--gray);   
+    border-right-color: var(--gray);
+    --circle-size: 95px;
+    width: var(--circle-size);
+    height: var(--circle-size); 
+    animation: spin 2s linear infinite;  
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+.form {
+  & {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 372px;
+    margin-top: 30px;
+  }
+}
+
+.submit {
+  & {
+    margin-top: 10px;
+    text-align: right;
+  }
+}
