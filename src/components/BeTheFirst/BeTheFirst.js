@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 import styles from "./BeTheFirst.module.scss"
 
@@ -10,7 +10,31 @@ import Button from "components/Button"
 import ArrowIcon from "src/icons/arrow.svg"
 import NotMeIcon from "src/icons/not-me.svg"
 
+import { createLead } from "src/services/lead"
+
 const BeTheFirst = () => {
+  const [form, setForm] = useState({
+    name: "",
+    email: ""
+  })
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setForm({
+      ...form,
+      [name]: value
+    })
+  }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    createLead(form)
+      .then(function () {
+        alert("Success!")
+      })
+      .then(function (error) {
+        console.log(error);
+        alert("Error! Check console")
+      })
+  }
   return (
     <Container>
       <div className={styles.wrapper}>
@@ -33,16 +57,21 @@ const BeTheFirst = () => {
           >
             Sign up for beta testing and be the first to experience the future.
           </Typography>
-          <form className={styles.form}>
+          <form 
+            className={styles.form}
+            onSubmit={handleSubmit}
+          >
             <InputGroup
               name="name"
               label="Name"
+              onChange={handleChange}
               required
             />
             <InputGroup
               name="email"
               type="email"
               label="E-mail"
+              onChange={handleChange}
               required
             />
             <div className={styles.submit}>
