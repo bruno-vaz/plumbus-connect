@@ -2,11 +2,10 @@
   & {
     position: relative;
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
+    justify-content: center;
+    padding-top: 110px;
     color: #505050;
-    font-family: "Inconsolata", sans-serif;
+    text-align: center;
   }
 
   .block {
@@ -19,10 +18,12 @@
 
   .title {
     max-width: 26ch;
-    margin-bottom: 20px;
+    margin: 0 auto 20px;
+  }
+  .title b {
+    color: var(--brand-main);
   }
   .text {
-    max-width: 42ch;
     font-weight: 400;
   }
 }
