@@ -19,3 +19,9 @@
     background-color: var(--brand-light)
   }
 }
+
+.icon {
+  & {
+    margin-left: 0.5em;
+  }
+}

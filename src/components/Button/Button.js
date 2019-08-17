@@ -2,7 +2,7 @@ import React from "react"
 
 import styles from "./Button.module.scss"
 
-const Button = ({ type, onClick, disabled, label }) => (
+const Button = ({ type, onClick, disabled, label, icon }) => (
   <button
     className={styles.button}
     type={type}
@@ -10,6 +10,12 @@ const Button = ({ type, onClick, disabled, label }) => (
     disabled={disabled}
   >
     {label}
+    {
+      icon && 
+      <div className={styles.icon}>
+        {icon}
+      </div>
+    }
   </button>
 )
 
