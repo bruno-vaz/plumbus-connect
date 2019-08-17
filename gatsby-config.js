@@ -24,6 +24,15 @@ module.exports = {
           include: /icons/
         }
       }
+    },
+    {
+      resolve: "gatsby-plugin-google-fonts",
+      options: {
+        fonts: [
+          "Inconsolata\:400,700"
+        ],
+        display: "swap"
+      }
     }
   ]
 }
