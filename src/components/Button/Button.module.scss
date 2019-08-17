@@ -1,0 +1,21 @@
+.button {
+  & {
+    outline: none;
+    cursor: pointer;
+    border: 0;
+    border-radius: 24px;
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--brand-main);
+    color: var(--white);
+    font-size: 20px;
+    padding: 2px 28px;
+    transition: var(--transition-default);
+    transition-property: background-color;
+  }
+  &:hover {
+    background-color: var(--brand-light)
+  }
+}
