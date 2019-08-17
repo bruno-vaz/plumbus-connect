@@ -1,0 +1,68 @@
+.hero {
+  & {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-top: 110px;
+    color: #505050;
+    text-align: center;
+  }
+
+  .block {
+    position: relative;
+    z-index: 25;
+  }
+  .illustrations {
+    z-index: 20;
+  }
+
+  .title {
+    max-width: 26ch;
+    margin: 0 auto 20px;
+  }
+  .text {
+    font-weight: 400;
+  }
+}
+
+.illustrations {
+  & {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+  }
+}
+
+.floob {
+  & {
+    position: absolute;
+    top: -62px;
+    right: -88px;
+  }
+}
+
+.grumbo {
+  & {
+    position: absolute;
+    top: 220px;
+    right: 640px;
+  }
+}
+
+.phone {
+  & {
+    width: 320px;
+    position: absolute;
+    top: 62px;
+    right: 210px;
+    transform: rotate(22deg);
+    border-radius: 30px;
+  }
+
+  >img {
+    width: 100%;
+  }
+}

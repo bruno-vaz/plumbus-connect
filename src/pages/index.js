@@ -1,3 +1,14 @@
 import React from "react"
 
-export default () => <div><pre>juno-test</pre></div>
+import Layout from "components/Layout"
+import Header from "components/Header"
+import Hero from "components/Hero"
+import BeTheFirst from "components/BeTheFirst"
+
+export default () => (
+  <Layout>
+    <Header />
+    <Hero />
+    <BeTheFirst/>
+  </Layout>
+)
