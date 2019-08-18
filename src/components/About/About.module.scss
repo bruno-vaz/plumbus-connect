@@ -3,6 +3,11 @@
     position: relative;
     padding: 56px 0 180px 0;
     margin-bottom: 80px;
+
+    @media (max-width: 992px) {
+      padding-bottom: 56px;
+      margin-bottom: 0;
+    }
   }
 }
 .background {
@@ -27,25 +32,42 @@
     overflow: hidden;
   }
   >.orbit {
-    width: 90px;
-    height: 90px;
+    --circle-size: 90px;
+    width: var(--circle-size);
+    height: var(--circle-size);
     border-radius: 50%;
     background-color: #FEF0E7;
     position: absolute;
     top: 250px;
     right: 110px;
     z-index: 7;
-    animation: myOrbit 40s linear infinite;
+    animation: orbit 40s linear infinite;
+    
+    @media (max-width: 992px) {
+      --circle-size: 50px;
+      top: 155px;
+      right: 60px;
+      animation: orbitMobile 30s linear infinite;
+    }
   }
   >svg {
     position: absolute;
     top: 63px;
     right: 0;
+    
+    @media (max-width: 992px) {
+      width: 200px;
+      height: auto;
+    }
   }
 }
-@keyframes myOrbit {
-  from { transform: rotate(0deg) translateX(224px) rotate(0deg); }
-  to   { transform: rotate(360deg) translateX(224px) rotate(-360deg); }
+@keyframes orbit {
+  0% { transform: rotate(0deg) translateX(224px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(224px) rotate(-360deg); }
+}
+@keyframes orbitMobile {
+  0% { transform: rotate(0deg) translateX(115px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(115px) rotate(-360deg); }
 }
 .wrapper {
   & {
@@ -53,6 +75,10 @@
     z-index: 10;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+    }
   }
 }
 .content {
@@ -77,11 +103,23 @@
   }
 }
 
+.illustrations {
+  & {
+    @media (max-width: 992px) {
+      grid-row: 1;
+    }
+  }
+}
+
 .cards {
   & {
     position: relative;
     width: 100%;
     height: 100%;
+    
+    @media (max-width: 992px) {
+      height: 250px;
+    }
   }
 }
 .temperature {
@@ -89,6 +127,10 @@
     position: absolute;
     top: 0;
     left: 0;
+    
+    @media (max-width: 992px) {
+      width: 270px;
+    }
   }
 }
 .above {
@@ -96,5 +138,9 @@
     position: absolute;
     top: 37%;
     left: 18%;
+    
+    @media (max-width: 992px) {
+      width: 270px;
+    }
   }
 }

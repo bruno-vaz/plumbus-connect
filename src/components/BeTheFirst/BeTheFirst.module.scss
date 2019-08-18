@@ -4,6 +4,10 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
     padding: 50px 0;
+    
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+    }
   }
 
   .title {
@@ -20,6 +24,13 @@
   & {
     position: relative;
   }
+
+  >svg {
+    @media (max-width: 992px) {
+      width: 100%;
+      height: auto;
+    }
+  }
 }
 
 .circleloader {
@@ -34,7 +45,11 @@
     --circle-size: 95px;
     width: var(--circle-size);
     height: var(--circle-size); 
-    animation: spin 2s linear infinite;  
+    animation: spin 2s linear infinite;
+
+    @media (max-width: 992px) {
+      --circle-size: 49px;
+    }
   }
 }
 
