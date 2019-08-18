@@ -41,7 +41,7 @@ const About = () => (
             </Typography>
           </div>
         </div>
-        <div className={styles.illustration}>
+        <div className={styles.illustrations}>
           <div className={styles.cards}>
             <img className={styles.temperature} src={TemperatureImg} alt="Temperature chart"/>
             <img className={styles.above} src={AboveTemperatureImg} alt="Above temperature alert"/>
