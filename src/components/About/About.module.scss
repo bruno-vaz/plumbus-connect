@@ -92,6 +92,10 @@
 .text {
   & {
     max-width: 367px;
+
+    @media (max-width: 992px) {
+      max-width: none;
+    }
   }
   p {
     font-weight: 400;
