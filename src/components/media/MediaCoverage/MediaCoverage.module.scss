@@ -20,16 +20,6 @@
   }
 }
 
-.chumble {
-  & {
-    position: relative;
-
-    @media (max-width: 992px) {
-      display: none;
-    }
-  }
-}
-
 .dashedline {
   & {
     position: absolute;

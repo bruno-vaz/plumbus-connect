@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useRef, useEffect } from "react"
+import useVisibilitySensor from "@rooks/use-visibility-sensor"
+import { useTrail, animated } from "react-spring"
 
 import styles from "./MediaCoverage.module.scss"
 
@@ -8,7 +10,6 @@ import Button from "components/Button"
 import MediaCard from "components/media/MediaCard"
 
 import ExternalLinkIcon from "src/icons/external-link.svg"
-import ChumbleIcon from "src/icons/chumble.svg"
 import DashedLineIcon from "src/icons/dashed-line.svg"
 import NyTimesLogo from "src/images/nytimes.png"
 import BbcNewsLogo from "src/images/bbcnews.png"
@@ -17,6 +18,7 @@ import TheGuardianLogo from "src/images/theguardian.png"
 const MediaCoverage = () => {
   const mediaPosts = [
     {
+      id: 1,
       color: "#000",
       quote: "The future is really here with the new Plumbus app",
       author: "Zoe Armstrong",
@@ -24,6 +26,7 @@ const MediaCoverage = () => {
       logo: NyTimesLogo
     },
     {
+      id: 2,
       color: "#bb1919",
       quote: "Plumbuses are even more useful with brand new app",
       author: "Taylor Allen",
@@ -31,6 +34,7 @@ const MediaCoverage = () => {
       logo: BbcNewsLogo
     },
     {
+      id: 3,
       color: "#052962",
       quote: "New Plumbus Connect app is all you need",
       author: "Emilia Chambers",
@@ -39,24 +43,46 @@ const MediaCoverage = () => {
     }
   ]
   
+  const [trail, setTrail, stopTrail] = useTrail(mediaPosts.length, () => ({ 
+    opacity: 0,
+    transform: "translateY(20%)",
+    config: {
+      tension: 450,
+      friction: 80
+    }
+  }));
+
+  const cards = useRef(null);
+  const { isVisible, visibilityRect } = useVisibilitySensor(cards, {
+    intervalCheck: false,
+    scrollCheck: true,
+    resizeCheck: true
+  });
+
+  useEffect(() => {
+    if (isVisible) {
+      setTrail({ opacity: 1, transform: "translateY(0%)" })
+    }
+  }, [isVisible])
+
   return (
     <section className={styles.section}>
       <div className={styles.illustrations}>
         <div className={styles.dashedline}>
           <DashedLineIcon/>
         </div>
-        <div className={styles.chumble}>
-          <ChumbleIcon/>
-        </div>
       </div>
       <Container>
         <div className={styles.wrapper}>
-          <div className={styles.cards}>
+          <div className={styles.cards} ref={cards}>
             {
-              mediaPosts.map(post => (
-                <MediaCard
-                  {...post}
-                />
+              trail.map((props, key) => (
+                <animated.div style={props}>
+                  <MediaCard
+                    key={mediaPosts[key].id}
+                    {...mediaPosts[key]}
+                  />
+                </animated.div>
               ))
             }
             <div className={styles.mobilelink}>
