@@ -6,6 +6,7 @@ import Hero from "components/Hero"
 import About from "components/About"
 import MediaCoverage from "components/MediaCoverage"
 import BeTheFirst from "components/BeTheFirst"
+import Footer from "components/Footer"
 
 export default () => (
   <Layout>
@@ -13,6 +14,7 @@ export default () => (
     <Hero />
     <About />
     <MediaCoverage />
-    <BeTheFirst/>
+    <BeTheFirst />
+    <Footer />
   </Layout>
 )
