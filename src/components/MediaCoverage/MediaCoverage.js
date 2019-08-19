@@ -32,7 +32,7 @@ const MediaCoverage = () => {
     },
     {
       color: "#052962",
-      quote: "New Plumbus app is everything you need",
+      quote: "New Plumbus Connect app is all you need",
       author: "Emilia Chambers",
       source: "The Guardian",
       logo: TheGuardianLogo
@@ -59,6 +59,12 @@ const MediaCoverage = () => {
                 />
               ))
             }
+            <div className={styles.mobilelink}>
+              <Button
+                label="Read more"
+                icon={<ExternalLinkIcon/>}
+              />
+            </div>
           </div>
           <div className={styles.content}>
             <div className={styles.text}>
@@ -76,10 +82,12 @@ const MediaCoverage = () => {
                 We gave Plumbus Connect early access accounts to some technology news websites, see what they said!
               </Typography>
             </div>
-            <Button
-              label="Read more"
-              icon={<ExternalLinkIcon/>}
-            />
+            <div className={styles.desktoplink}>
+              <Button
+                label="Read more"
+                icon={<ExternalLinkIcon/>}
+              />
+            </div>
           </div>
         </div>
       </Container>
