@@ -33,4 +33,9 @@
     font-size: 16px;
     font-weight: 400;
   }
+  >tbody>tr>td:nth-child(2) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
