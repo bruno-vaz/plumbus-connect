@@ -35,10 +35,16 @@
       height: auto;
     }
   }
+  >svg *:global(#spinner) {
+    transform-box: fill-box;
+    transform-origin: center center;
+    animation: spin 2s linear infinite;
+  }
 }
 
 .circleloader {
   & {
+    display: none;
     position: absolute;
     top: 39.2%;
     left: 39.25%;
