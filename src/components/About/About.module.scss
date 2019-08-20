@@ -41,20 +41,21 @@
     top: 250px;
     right: 110px;
     z-index: 7;
-    animation: orbit 40s linear infinite;
+    animation: orbit 25s linear infinite;
     
     @media (max-width: 992px) {
       --circle-size: 50px;
       top: 155px;
       right: 60px;
-      animation: orbitMobile 30s linear infinite;
+      animation: orbitMobile 15s linear infinite;
     }
   }
-  >svg {
+  .grumbo {
     position: absolute;
     top: 63px;
     right: 0;
-    
+  }
+  .grumbo svg {
     @media (max-width: 992px) {
       width: 200px;
       height: auto;
@@ -62,8 +63,8 @@
   }
 }
 @keyframes orbit {
-  0% { transform: rotate(0deg) translateX(224px) rotate(0deg); }
-  100% { transform: rotate(360deg) translateX(224px) rotate(-360deg); }
+  0% { transform: rotate(0deg) translateX(-224px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(-224px) rotate(-360deg); }
 }
 @keyframes orbitMobile {
   0% { transform: rotate(0deg) translateX(115px) rotate(0deg); }

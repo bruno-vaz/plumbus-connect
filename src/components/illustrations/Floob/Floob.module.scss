@@ -19,5 +19,7 @@
   }
   >svg circle {
     fill: var(--brand-lighter);
+    transform-box: fill-box;
+    transform-origin: center center;
   }
 }

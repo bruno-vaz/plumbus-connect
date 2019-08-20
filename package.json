@@ -25,7 +25,10 @@
     "node-sass": "^4.12.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "react-intersection-observer": "^8.24.1",
+    "react-spring": "^8.0.27",
+    "use-interval": "^1.1.0"
   },
   "devDependencies": {
     "gh-pages": "^2.1.1",
