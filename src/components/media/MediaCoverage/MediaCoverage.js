@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react"
-import useVisibilitySensor from "@rooks/use-visibility-sensor"
+import { useInView } from "react-intersection-observer"
 import { useTrail, animated } from "react-spring"
 
 import styles from "./MediaCoverage.module.scss"
@@ -45,19 +45,18 @@ const MediaCoverage = () => {
   
   const [trail, setTrail, stopTrail] = useTrail(mediaPosts.length, () => ({ 
     opacity: 0,
-    transform: "translateY(20%)",
+    transform: "translateY(40%)",
     config: {
+      mass: 2,
       tension: 450,
       friction: 80
     }
   }));
 
-  const cards = useRef(null);
-  const { isVisible, visibilityRect } = useVisibilitySensor(cards, {
-    intervalCheck: false,
-    scrollCheck: true,
-    resizeCheck: true
-  });
+  const [cards, isVisible, entry] = useInView({
+    /* Optional options */
+    threshold: 0.5,
+  })
 
   useEffect(() => {
     if (isVisible) {

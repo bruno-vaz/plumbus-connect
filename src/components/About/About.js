@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from "react"
-import useVisibilitySensor from "@rooks/use-visibility-sensor"
+import React, { useEffect } from "react"
+import { useInView } from "react-intersection-observer"
 import { useSprings, animated } from "react-spring"
 
 import styles from "./About.module.scss"
@@ -7,17 +7,16 @@ import styles from "./About.module.scss"
 import Container from "components/Container"
 import Typography from "components/Typography"
 
+import GrumboBig from "components/illustrations/GrumboBig"
 import GrumboBigIcon from "src/icons/grumbo-big.svg"
 import TemperatureImg from "src/images/plumbus-temperature.png"
 import AboveTemperatureImg from "src/images/plumbus-above-temperature.png"
 
 const About = () => {
-  const about = useRef(null);
-  const { isVisible, visibilityRect } = useVisibilitySensor(about, {
-    intervalCheck: false,
-    scrollCheck: true,
-    resizeCheck: true
-  });
+  const [about, isVisible] = useInView({
+    /* Optional options */
+    threshold: 0.5,
+  })
 
   const [springs, set, stop] = useSprings(1, index => ({
     opacity: 0,
@@ -35,19 +34,36 @@ const About = () => {
       friction: 80
     }
   }))
+  const [orbit, setOrbit, stopOrbit] = useSprings(1, index => ({
+    opacity: 0,
+    config: {
+      tension: 450,
+      friction: 80
+    }
+  }))
   
   useEffect(() => {
     if (isVisible) {
       set({ opacity: 1, transform: "translateX(0%)" })
       set2({ opacity: 1, transform: "translateX(0%)" })
+      setOrbit({ delay: 600, opacity: 1 })
     }
   }, [isVisible])
 
   return (
     <section className={styles.about} ref={about}>
       <div className={styles.bgillustrations}>
-        <div className={styles.orbit}></div>
-        <GrumboBigIcon/>
+        {
+          orbit.map(props => (
+            <animated.div 
+              className={styles.orbit}
+              style={props}
+            />
+          ))
+        }
+        <div className={styles.grumbo}>
+          <GrumboBig/>
+        </div>
       </div>
       <div className={styles.background}></div>
       <Container>
