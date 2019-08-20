@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react"
+import React, { useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 import { useTrail, animated } from "react-spring"
 
@@ -43,9 +43,9 @@ const MediaCoverage = () => {
     }
   ]
   
-  const [trail, setTrail, stopTrail] = useTrail(mediaPosts.length, () => ({ 
+  const [trail, setTrail] = useTrail(mediaPosts.length, () => ({ 
     opacity: 0,
-    transform: "translateY(40%)",
+    transform: "translate3d(0, 40%, 0)",
     config: {
       mass: 2,
       tension: 450,
@@ -53,14 +53,13 @@ const MediaCoverage = () => {
     }
   }));
 
-  const [cards, isVisible, entry] = useInView({
-    /* Optional options */
+  const [cards, isVisible] = useInView({
     threshold: 0.5,
   })
 
   useEffect(() => {
     if (isVisible) {
-      setTrail({ opacity: 1, transform: "translateY(0%)" })
+      setTrail({ opacity: 1, transform: "translate3d(0, 0%, 0)" })
     }
   }, [isVisible])
 

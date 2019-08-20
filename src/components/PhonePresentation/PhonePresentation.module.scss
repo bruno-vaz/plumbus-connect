@@ -13,13 +13,14 @@
 
 @keyframes float {
   0% { transform: none }
-  50% { transform: rotate(16deg) translateY(40%) translateX(15%) }
+  50% { transform: rotate(56deg) translateY(-20%) translateX(-76%) }
   100% { transform: none }
 }
 
 .grumbo {
   & {
     animation: float 12s infinite;
+    z-index: 10;
   }
 }
 

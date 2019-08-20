@@ -20,7 +20,7 @@ const About = () => {
 
   const [springs, set, stop] = useSprings(1, index => ({
     opacity: 0,
-    transform: "translateX(-20%)", 
+    transform: "translate3d(020%, 0, 0)", 
     config: {
       tension: 450,
       friction: 80
@@ -28,7 +28,7 @@ const About = () => {
   }))
   const [springs2, set2, stop2] = useSprings(1, index => ({
     opacity: 0,
-    transform: "translateX(20%)", 
+    transform: "translate3d(20%, 0, 0)", 
     config: {
       tension: 450,
       friction: 80
@@ -44,8 +44,8 @@ const About = () => {
   
   useEffect(() => {
     if (isVisible) {
-      set({ opacity: 1, transform: "translateX(0%)" })
-      set2({ opacity: 1, transform: "translateX(0%)" })
+      set({ opacity: 1, transform: "translate3d(0, 0, 0)" })
+      set2({ opacity: 1, transform: "translate3d(0, 0, 0)" })
       setOrbit({ delay: 600, opacity: 1 })
     }
   }, [isVisible])
