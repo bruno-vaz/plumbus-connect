@@ -20,7 +20,7 @@ const About = () => {
 
   const [springs, set, stop] = useSprings(1, index => ({
     opacity: 0,
-    transform: "translate3d(020%, 0, 0)", 
+    transform: "translate3d(-20%, 0, 0)", 
     config: {
       tension: 450,
       friction: 80

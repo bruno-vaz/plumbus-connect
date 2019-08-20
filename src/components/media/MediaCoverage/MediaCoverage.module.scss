@@ -30,11 +30,11 @@
     @media (max-width: 992px) {
       top: 0;
       bottom: auto;
-      transform: translateY(-30%);
     }
   }
   >svg {
     width: 100%;
+    height: auto;
   }
   >svg>path {
     animation: dasharray 30s linear infinite;

@@ -11,10 +11,10 @@ const PhonePresentation = () => {
   const animations = {
     phone: useSpring({ 
       opacity: 1,
-      transform: "translateY(0%)", 
+      transform: "translate3d(0, 0%, 0)", 
       from: { 
         opacity: 0,
-        transform: "translateY(20%)", 
+        transform: "translate3d(0, 20%, 0)", 
       }, 
       delay: 400,
       config: {
