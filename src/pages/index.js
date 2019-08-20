@@ -3,12 +3,18 @@ import React from "react"
 import Layout from "components/Layout"
 import Header from "components/Header"
 import Hero from "components/Hero"
+import About from "components/About"
+import MediaCoverage from "components/media/MediaCoverage"
 import BeTheFirst from "components/BeTheFirst"
+import Footer from "components/Footer"
 
 export default () => (
   <Layout>
     <Header />
     <Hero />
-    <BeTheFirst/>
+    <About />
+    <MediaCoverage />
+    <BeTheFirst />
+    <Footer />
   </Layout>
 )

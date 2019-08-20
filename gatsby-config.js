@@ -38,13 +38,6 @@ module.exports = {
         display: "swap"
       }
     },
-    // {
-    //   resolve: "gatsby-plugin-hubspot",
-    //   options: {
-    //       trackingCode: "6289591",
-    //       respectDNT: true,
-    //       productionOnly: false,
-    //   },
-    // }
+    `gatsby-plugin-react-helmet`
   ]
 }

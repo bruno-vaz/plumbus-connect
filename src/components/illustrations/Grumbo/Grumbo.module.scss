@@ -1,0 +1,7 @@
+.grumbo {
+  >svg {
+    @media (max-width: 992px) {
+      width: 40px;
+    }
+  }
+}

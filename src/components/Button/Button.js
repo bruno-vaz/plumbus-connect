@@ -2,12 +2,12 @@ import React from "react"
 
 import styles from "./Button.module.scss"
 
-const Button = ({ type, onClick, disabled, label, icon }) => (
+const Button = ({ type, onClick, disabled, loading, label, icon }) => (
   <button
-    className={styles.button}
+    className={`${styles.button} ${loading ? styles.loading:""}`}
     type={type}
     onClick={onClick}
-    disabled={disabled}
+    disabled={disabled || loading}
   >
     {label}
     {

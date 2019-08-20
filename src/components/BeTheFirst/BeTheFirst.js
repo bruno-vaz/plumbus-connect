@@ -9,6 +9,7 @@ import Button from "components/Button"
 
 import ArrowIcon from "src/icons/arrow.svg"
 import NotMeIcon from "src/icons/not-me.svg"
+import CheckIcon from "src/icons/check.svg"
 
 import { createLead } from "src/services/lead"
 
@@ -16,7 +17,9 @@ const BeTheFirst = () => {
   const [form, setForm] = useState({
     name: "",
     email: ""
-  })
+  });
+  const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
   const handleChange = (event) => {
     const { name, value } = event.target;
     setForm({
@@ -26,13 +29,13 @@ const BeTheFirst = () => {
   }
   const handleSubmit = (event) => {
     event.preventDefault();
+    setLoading(true);
     createLead(form)
       .then(function () {
-        alert("Success!")
+        setSuccess(true)
       })
-      .then(function (error) {
-        console.log(error);
-        alert("Error! Check console")
+      .finally(function () {
+        setLoading(false);
       })
   }
   return (
@@ -42,7 +45,11 @@ const BeTheFirst = () => {
           <div className={styles.circleloader}></div>
           <NotMeIcon/>
         </div>
-        <div className={styles.content}>
+        <div className={`${styles.content}${success ? " " + styles.sent:""}`}>
+          <div className={styles.success}>
+            <div className={styles.circle}></div>                
+            <CheckIcon/>
+          </div>
           <Typography
             component="h2"
             className={styles.title}
@@ -65,6 +72,7 @@ const BeTheFirst = () => {
               name="name"
               label="Name"
               onChange={handleChange}
+              disabled={loading}
               required
             />
             <InputGroup
@@ -72,6 +80,7 @@ const BeTheFirst = () => {
               type="email"
               label="E-mail"
               onChange={handleChange}
+              disabled={loading}
               required
             />
             <div className={styles.submit}>
@@ -79,6 +88,7 @@ const BeTheFirst = () => {
                 type="submit"
                 label="Sign up"
                 icon={<ArrowIcon/>}
+                loading={loading}
               />
             </div>
           </form>

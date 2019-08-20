@@ -4,6 +4,11 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
     padding: 50px 0;
+    margin-bottom: 50px;
+    
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+    }
   }
 
   .title {
@@ -13,6 +18,10 @@
     font-weight: 400;
     max-width: 372px;
     margin-bottom: 20px;
+
+    @media (max-width: 992px) {
+      max-width: none;
+    }
   }
 }
 
@@ -20,10 +29,23 @@
   & {
     position: relative;
   }
+
+  >svg {
+    @media (max-width: 992px) {
+      width: 100%;
+      height: auto;
+    }
+  }
+  >svg *:global(#spinner) {
+    transform-box: fill-box;
+    transform-origin: center center;
+    animation: spin 2s linear infinite;
+  }
 }
 
 .circleloader {
   & {
+    display: none;
     position: absolute;
     top: 39.2%;
     left: 39.25%;
@@ -34,16 +56,30 @@
     --circle-size: 95px;
     width: var(--circle-size);
     height: var(--circle-size); 
-    animation: spin 2s linear infinite;  
+    animation: spin 2s linear infinite;
+
+    @media (max-width: 992px) {
+      --circle-size: 49px;
+    }
   }
 }
 
 @keyframes spin {
-  0% {
-    transform: rotate(0deg)
+  0% { transform: rotate(0deg) }
+  100% { transform: rotate(360deg) }
+}
+
+.content {
+  & {
+    position: relative;
   }
-  100% {
-    transform: rotate(360deg)
+
+  &.sent .success {
+    pointer-events: all;
+    opacity: 1;
+  }
+  &.sent .circle {
+    transform: none;
   }
 }
 
@@ -54,6 +90,10 @@
     gap: 20px;
     max-width: 372px;
     margin-top: 30px;
+
+    @media (max-width: 992px) {
+      max-width: none;
+    }
   }
 }
 
@@ -61,5 +101,49 @@
   & {
     margin-top: 10px;
     text-align: right;
+  }
+}
+
+.success {
+  & {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: -5px;
+    left: 0;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    background-color: var(--white);
+  }
+  >svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    height: 120px;
+    width: 120px;
+    margin: auto;
+    color: var(--white);
+  }
+}
+.circle {
+  & {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+    height: 150px;
+    width: 150px;
+    margin: auto;
+    border-radius: 50%;
+    background-color: var(--green);
+    transform: scale(0);
+    transition: var(--transition-default);
+    transition-property: transform;
   }
 }
