@@ -11,6 +11,18 @@
   }
 }
 
+@keyframes float {
+  0% { transform: none }
+  50% { transform: rotate(16deg) translateY(40%) translateX(15%) }
+  100% { transform: none }
+}
+
+.grumbo {
+  & {
+    animation: float 12s infinite;
+  }
+}
+
 .illustrations {
   & {
     position: absolute;
@@ -35,6 +47,7 @@
     position: absolute;
     top: 51%;
     right: -12%;
+    animation-delay: 3s;
 
     @media (max-width: 992px) {
       top: 39%;
@@ -45,6 +58,7 @@
     position: absolute;
     top: 90%;
     left: -2%;
+    animation-delay: 1s;
 
     @media (max-width: 992px) {
       top: 78%;
