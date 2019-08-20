@@ -19,6 +19,7 @@ const BeTheFirst = () => {
     email: ""
   });
   const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
   const handleChange = (event) => {
     const { name, value } = event.target;
     setForm({
@@ -28,9 +29,13 @@ const BeTheFirst = () => {
   }
   const handleSubmit = (event) => {
     event.preventDefault();
+    setLoading(true);
     createLead(form)
       .then(function () {
         setSuccess(true)
+      })
+      .finally(function () {
+        setLoading(false);
       })
   }
   return (
@@ -67,6 +72,7 @@ const BeTheFirst = () => {
               name="name"
               label="Name"
               onChange={handleChange}
+              disabled={loading}
               required
             />
             <InputGroup
@@ -74,6 +80,7 @@ const BeTheFirst = () => {
               type="email"
               label="E-mail"
               onChange={handleChange}
+              disabled={loading}
               required
             />
             <div className={styles.submit}>
@@ -81,6 +88,7 @@ const BeTheFirst = () => {
                 type="submit"
                 label="Sign up"
                 icon={<ArrowIcon/>}
+                loading={loading}
               />
             </div>
           </form>

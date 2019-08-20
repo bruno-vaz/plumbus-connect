@@ -1,5 +1,6 @@
 .button {
   & {
+    position: relative;
     outline: none;
     cursor: pointer;
     border: 0;
@@ -22,8 +23,43 @@
       padding: 2px 20px;
     }
   }
+
   &:hover {
     background-color: var(--brand-light)
+  }
+
+  &.loading,
+  &.loading[disabled] {
+    color: transparent !important;
+    cursor: progress;
+  }
+
+  &.loading::after {
+    animation: loading .5s infinite linear;
+    border: 2px solid #dbdbdb;
+    border-color: transparent transparent #fff #fff;
+    border-radius: 290486px;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    content: "";
+    display: block;
+    height: 1em;
+    width: 1em;
+    position: absolute;
+    top: calc(50% - (1em / 2));
+    left: calc(50% - (1em / 2));
+  }
+}
+
+@keyframes loading {
+  from {
+    -webkit-transform: rotate(0);
+    transform: rotate(0)
+  }
+
+  to {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg)
   }
 }
 
