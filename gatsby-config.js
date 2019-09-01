@@ -7,7 +7,7 @@
  const path = require('path')
 
 module.exports = {
-  pathPrefix: "/juno-test",
+  pathPrefix: "/plumbus-connect",
   proxy: {
     prefix: "/api",
     url: "https://juno-test-leads.herokuapp.com",
